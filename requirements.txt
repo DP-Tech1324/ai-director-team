@@ -1,0 +1,21 @@
+# Core agent framework
+autogen==0.9.5
+pyautogen==0.9.0
+
+
+# Local model compatibility (via Ollama)
+openai==1.93.0
+tiktoken==0.9.0
+
+# Streamlit UI for dashboard
+streamlit==1.35.0
+
+# Utility & API handling
+requests==2.32.4
+python-dotenv==1.1.1
+
+# Optional: for logging, display, docker management
+docker==7.1.0
+termcolor==3.1.0
+tqdm==4.67.1
+regex==2024.11.6

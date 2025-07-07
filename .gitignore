@@ -1,0 +1,21 @@
+# Virtual Envs
+.venv/
+dashboard/.venv/
+
+# Bytecode
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Env & config
+.env
+.env.*
+
+# Logs or memory
+memory/
+chat_log.json
+
+# Streamlit specific
+.streamlit/
