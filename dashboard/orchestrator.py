@@ -10,32 +10,45 @@ from agents.qa import qa
 # List of all agents except the Director
 agents = [planner, coder, researcher, scribe, designer, qa]
 
-# Run a single agent with a given message
 async def run_agent(agent, message):
-    return agent.name, agent.generate_reply([{"role": "user", "content": message}])
+    # Await if generate_reply is async, else just call it
+    if asyncio.iscoroutinefunction(agent.generate_reply):
+        reply = await agent.generate_reply([{"role": "user", "content": message}])
+    else:
+        reply = agent.generate_reply([{"role": "user", "content": message}])
+    return agent.name, reply
 
-# Main function to coordinate the AI team
+__all__ = ["run_agents"]
+
 async def run_agents(goal):
     logs = {}
 
-    # Step 1: Ask the Director to break down the goal
-    director_reply = director.generate_reply([{"role": "user", "content": goal}])
+    # Step 1: Ask Director for subtasks
+    if asyncio.iscoroutinefunction(director.generate_reply):
+        director_reply = await director.generate_reply([{"role": "user", "content": goal}])
+    else:
+        director_reply = director.generate_reply([{"role": "user", "content": goal}])
+
     logs["Director"] = director_reply
 
-    # Step 2: Parse subtasks by matching agent names in the Director's reply
+    # Step 2: Extract subtasks by matching agent names in Director's reply
     director_reply_str = str(director_reply) if director_reply is not None else ""
-    subtasks = [line for line in director_reply_str.split("\n") if any(agent.name in line for agent in agents)]
+
+    subtasks = []
+    for line in director_reply_str.split("\n"):
+        if any(agent.name in line for agent in agents):
+            subtasks.append(line.strip())
 
     # Step 3: Assign subtasks to agents
     tasks = []
     for line in subtasks:
         for agent in agents:
             if agent.name in line:
-                # Extract the instruction after a colon or comma
+                # Extract the instruction after ':' or ',' or fallback to whole line
                 if ":" in line:
-                    task_msg = line.split(":", 1)[-1].strip()
+                    task_msg = line.split(":", 1)[1].strip()
                 elif "," in line:
-                    task_msg = line.split(",", 1)[-1].strip()
+                    task_msg = line.split(",", 1)[1].strip()
                 else:
                     task_msg = line.strip()
                 tasks.append(run_agent(agent, task_msg))

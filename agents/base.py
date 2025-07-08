@@ -11,8 +11,7 @@ class BaseAgent:
             "system_message": system_message,
             "llm_config": CONFIG["llm_config"]
         }
-        if tools:
-            kwargs["tools"] = tools
+        # 'tools' argument removed for compatibility with current autogen version
 
         self.agent = AssistantAgent(**kwargs)
 

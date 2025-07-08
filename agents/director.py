@@ -1,29 +1,24 @@
 from agents.base import BaseAgent
+import json
 
-director = BaseAgent(
+class DirectorAgent(BaseAgent):
+    def generate_reply(self, messages):
+        try:
+            # Always output JSON with subtasks
+            user_goal = messages[-1]["content"] if messages else ""
+            subtasks = [
+                {"agent": "Planner", "task": "Break the project into subtasks."},
+                {"agent": "Researcher", "task": "Find the best way to accomplish the main goal."},
+                {"agent": "Coder", "task": "Write the required code."},
+                {"agent": "Designer", "task": "Suggest the UI layout."},
+                {"agent": "Scribe", "task": "Document how to run the app."},
+                {"agent": "QA", "task": "Review and approve final output."}
+            ]
+            return json.dumps({"goal": user_goal, "subtasks": subtasks}, indent=2)
+        except Exception as e:
+            return json.dumps({"error": str(e)})
+
+director = DirectorAgent(
     name="Director",
-    system_message="""
-You are the Director Agent of an AI startup with a multi-agent team.
-Your job:
-- Understand the user's overall goal
-- Break it into clear, numbered subtasks
-- Explicitly assign each subtask to a specific team member by name
-- After every round, monitor the progress and assign the next logical subtask
-
-Team Members:
-- Planner: breaks down big tasks into smaller steps
-- Coder: writes code or scripts
-- Researcher: gathers useful information
-- Designer: gives UI/UX ideas or visuals
-- Scribe: documents everything
-- QA: checks for quality
-
-Always respond in this format:
-1. [Planner], please break the project into subtasks.
-2. [Researcher], please find the best way to get today's weather.
-3. [Coder], write the Streamlit code.
-4. [Designer], suggest the UI layout.
-5. [Scribe], document how to run the app.
-6. [QA], review and approve final output.
-"""
+    system_message="You are the Director Agent. Always respond with a JSON object containing the goal and a list of subtasks, each with an agent and a task."
 ).get_agent()
