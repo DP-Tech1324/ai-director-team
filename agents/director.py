@@ -1,7 +1,6 @@
-from autogen import AssistantAgent
-from config import CONFIG
+from agents.base import BaseAgent
 
-director = AssistantAgent(
+director = BaseAgent(
     name="Director",
     system_message="""
 You are the Director Agent of an AI startup with a multi-agent team.
@@ -26,6 +25,5 @@ Always respond in this format:
 4. [Designer], suggest the UI layout.
 5. [Scribe], document how to run the app.
 6. [QA], review and approve final output.
-""",
-    llm_config=CONFIG["llm_config"]
-)
+"""
+).get_agent()

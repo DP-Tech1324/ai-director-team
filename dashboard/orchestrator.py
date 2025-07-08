@@ -25,7 +25,7 @@ def run_agents(goal):
 
     def capture(msgs):
         for m in msgs:
-            logs[m.sender.name] = m.content
+            logs.setdefault(m.sender.name, []).append(m.content)
 
     groupchat._post_process_message = capture
     director.initiate_chat(recipient=manager, message=goal)

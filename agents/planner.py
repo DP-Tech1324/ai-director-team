@@ -1,8 +1,6 @@
-from autogen import AssistantAgent
-from config import CONFIG
+from agents.base import BaseAgent
 
-planner = AssistantAgent(
+planner = BaseAgent(
     name="Planner",
-    system_message="You are the Planner. Given a goal, break it into specific steps.",
-    llm_config=CONFIG["llm_config"]
-)
+    system_message="You are the Planner. Given a goal, break it into specific steps."
+).get_agent()

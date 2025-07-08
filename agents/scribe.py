@@ -1,8 +1,6 @@
-from autogen import AssistantAgent
-from config import CONFIG
+from agents.base import BaseAgent
 
-scribe = AssistantAgent(
+scribe = BaseAgent(
     name="Scribe",
-    system_message="You are the Scribe. Turn task results into well-written documentation, blog posts, summaries, or copywriting.",
-    llm_config=CONFIG["llm_config"]
-)
+    system_message="You are the Scribe. Turn task results into well-written documentation, blog posts, summaries, or copywriting."
+).get_agent()
