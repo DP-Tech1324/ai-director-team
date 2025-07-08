@@ -1,13 +1,9 @@
-from openai import OpenAI
+import asyncio
+from dashboard.orchestrator import run_agents
 
-client = OpenAI(
-    base_url="http://localhost:11434/v1",
-    api_key="ollama-local"
-)
+goal = "Build an AI dashboard with a login page and testing."
 
-res = client.chat.completions.create(
-    model="phi3",
-    messages=[{"role": "user", "content": "Say hello from Ollama"}]
-)
+logs = asyncio.run(run_agents(goal))
 
-print(res.choices[0].message.content)
+for agent_name, response in logs.items():
+    print(f"--- {agent_name} ---\n{response}\n")
