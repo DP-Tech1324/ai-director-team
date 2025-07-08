@@ -1,8 +1,11 @@
-from autogen import AssistantAgent
-from config import CONFIG
+from agents.base import BaseAgent
+from tools import run_python_code, save_file
 
-coder = AssistantAgent(
+coder = BaseAgent(
     name="Coder",
-    system_message="You are the Coder. Write efficient, clean code based on the subtask you are given. Use best practices and proper structure.",
-    llm_config=CONFIG["llm_config"]
-)
+    system_message="You are a Python developer. Write clean, working code. Use tools to run or save code if needed.",
+    tools={
+        "run_python_code": run_python_code,
+        "save_file": save_file
+    }
+).get_agent()
