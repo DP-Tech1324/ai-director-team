@@ -1,16 +1,28 @@
-from agents.base import BaseAgent
 import json
+from agents.base import BaseAgent
 
 class ResearcherAgent(BaseAgent):
     def generate_reply(self, messages):
-        try:
-            last = messages[-1]["content"] if messages else ""
-            # Simulate research
-            return json.dumps({"insight": f"Research completed for: {last}"})
-        except Exception as e:
-            return json.dumps({"error": str(e)})
+        task = messages[-1]["content"] if messages else ""
+
+        if "login" in task.lower() and "streamlit" in task.lower():
+            tips = [
+                "Use st.session_state to remember login state across reruns",
+                "Never hardcode real passwords in production; use hashed passwords + secrets",
+                "Add rate limiting / lockouts if exposed publicly",
+                "Prefer OAuth/Supabase/Auth0 for real apps"
+            ]
+        else:
+            tips = [
+                "Keep scope small; build MVP first",
+                "Avoid premature optimization; measure before tuning",
+                "Write clear docstrings and a short README/runbook",
+                "Add basic error handling and input validation"
+            ]
+
+        return json.dumps({"task": task, "tips": tips}, indent=2)
 
 researcher = ResearcherAgent(
     name="Researcher",
-    system_message="You are the Researcher. Search or simulate finding insights, trends, and supporting information for a task. Return summaries, examples, or data."
-).get_agent()
+    system_message="You are Researcher. Return ONLY research tips as JSON."
+)
