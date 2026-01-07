@@ -1,0 +1,10 @@
+{
+  "task": "Create a tight 3\u20135 step plan for: tell me 7 days of week names",
+  "steps": [
+    "Clarify requirements and expected output",
+    "Draft a minimal plan (3\u20136 steps)",
+    "Implement the simplest working version",
+    "Test edge cases and refine",
+    "Document how to run it"
+  ]
+}

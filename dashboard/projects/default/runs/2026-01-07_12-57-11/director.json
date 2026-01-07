@@ -1,0 +1,29 @@
+{
+  "goal": "tell me 7days of week",
+  "subtasks": [
+    {
+      "agent": "Planner",
+      "task": "Create a tight 3\u20135 step plan for: tell me 7days of week"
+    },
+    {
+      "agent": "Researcher",
+      "task": "Provide key tips/best practices for: tell me 7days of week"
+    },
+    {
+      "agent": "Coder",
+      "task": "Create a simple working template or snippet for: tell me 7days of week"
+    },
+    {
+      "agent": "Designer",
+      "task": "Suggest UI/UX layout ideas for: tell me 7days of week"
+    },
+    {
+      "agent": "Scribe",
+      "task": "Write concise runbook/summary for: tell me 7days of week"
+    },
+    {
+      "agent": "QA",
+      "task": "Review outputs for: tell me 7days of week and approve or request fixes."
+    }
+  ]
+}

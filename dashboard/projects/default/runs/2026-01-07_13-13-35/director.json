@@ -1,0 +1,29 @@
+{
+  "goal": "tell me 7 days of week names",
+  "subtasks": [
+    {
+      "agent": "Planner",
+      "task": "Create a tight 3\u20135 step plan for: tell me 7 days of week names"
+    },
+    {
+      "agent": "Researcher",
+      "task": "Provide key tips/best practices for: tell me 7 days of week names"
+    },
+    {
+      "agent": "Coder",
+      "task": "Create a simple working template or snippet for: tell me 7 days of week names"
+    },
+    {
+      "agent": "Designer",
+      "task": "Suggest UI/UX layout ideas for: tell me 7 days of week names"
+    },
+    {
+      "agent": "Scribe",
+      "task": "Write concise runbook/summary for: tell me 7 days of week names"
+    },
+    {
+      "agent": "QA",
+      "task": "Review outputs for: tell me 7 days of week names and approve or request fixes."
+    }
+  ]
+}

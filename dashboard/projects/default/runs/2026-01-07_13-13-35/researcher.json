@@ -1,0 +1,9 @@
+{
+  "task": "Provide key tips/best practices for: tell me 7 days of week names",
+  "tips": [
+    "Keep scope small; build MVP first",
+    "Avoid premature optimization; measure before tuning",
+    "Write clear docstrings and a short README/runbook",
+    "Add basic error handling and input validation"
+  ]
+}

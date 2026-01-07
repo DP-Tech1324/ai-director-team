@@ -1,0 +1,9 @@
+{
+  "task": "Review outputs for: hello and approve or request fixes.",
+  "review": "\u2705 Approved. Outputs are coherent and role-separated.",
+  "next_improvements": [
+    "Add real tool-calling for Coder (execute snippet + show output)",
+    "Add persistent memory summary per run",
+    "Add retries/timeouts per agent call"
+  ]
+}

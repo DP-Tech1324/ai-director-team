@@ -1,0 +1,18 @@
+{
+  "run_id": "2026-01-07_12-34-53",
+  "project": "default",
+  "goal": "what is the best things for this team",
+  "mode": "team",
+  "model": "phi3:latest",
+  "agents": [
+    "Director",
+    "Planner",
+    "Researcher",
+    "Coder",
+    "Designer",
+    "Scribe",
+    "QA"
+  ],
+  "start_time": "2026-01-07T12:34:53",
+  "status": "completed"
+}
