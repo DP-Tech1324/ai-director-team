@@ -1,0 +1,29 @@
+{
+  "goal": "what is the best things for this team",
+  "subtasks": [
+    {
+      "agent": "Planner",
+      "task": "Create a tight 3\u20135 step plan for: what is the best things for this team"
+    },
+    {
+      "agent": "Researcher",
+      "task": "Provide key tips/best practices for: what is the best things for this team"
+    },
+    {
+      "agent": "Coder",
+      "task": "Create a simple working template or snippet for: what is the best things for this team"
+    },
+    {
+      "agent": "Designer",
+      "task": "Suggest UI/UX layout ideas for: what is the best things for this team"
+    },
+    {
+      "agent": "Scribe",
+      "task": "Write concise runbook/summary for: what is the best things for this team"
+    },
+    {
+      "agent": "QA",
+      "task": "Review outputs for: what is the best things for this team and approve or request fixes."
+    }
+  ]
+}

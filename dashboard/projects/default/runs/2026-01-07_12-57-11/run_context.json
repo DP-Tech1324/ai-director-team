@@ -1,0 +1,18 @@
+{
+  "run_id": "2026-01-07_12-57-11",
+  "project": "default",
+  "goal": "tell me 7days of week",
+  "mode": "team",
+  "model": "phi3:latest",
+  "agents": [
+    "Director",
+    "Planner",
+    "Researcher",
+    "Coder",
+    "Designer",
+    "Scribe",
+    "QA"
+  ],
+  "start_time": "2026-01-07T12:57:11",
+  "status": "completed"
+}

@@ -1,0 +1,18 @@
+{
+  "task": "Suggest UI/UX layout ideas for: tell me 7 days of week names",
+  "ui": {
+    "layout": [
+      "Header: Project/Goal + run button",
+      "Left: Agent status (Director/Planner/etc.)",
+      "Center: Conversation feed (role-colored bubbles)",
+      "Right: Final Output + Copy button",
+      "Bottom: Chat input (single line) + mode selector"
+    ],
+    "style": [
+      "Dark theme",
+      "Rounded cards",
+      "Readable typography",
+      "Compact spacing"
+    ]
+  }
+}

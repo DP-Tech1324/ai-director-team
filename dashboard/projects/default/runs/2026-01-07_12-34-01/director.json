@@ -1,0 +1,29 @@
+{
+  "goal": "hello",
+  "subtasks": [
+    {
+      "agent": "Planner",
+      "task": "Create a tight 3\u20135 step plan for: hello"
+    },
+    {
+      "agent": "Researcher",
+      "task": "Provide key tips/best practices for: hello"
+    },
+    {
+      "agent": "Coder",
+      "task": "Create a simple working template or snippet for: hello"
+    },
+    {
+      "agent": "Designer",
+      "task": "Suggest UI/UX layout ideas for: hello"
+    },
+    {
+      "agent": "Scribe",
+      "task": "Write concise runbook/summary for: hello"
+    },
+    {
+      "agent": "QA",
+      "task": "Review outputs for: hello and approve or request fixes."
+    }
+  ]
+}
